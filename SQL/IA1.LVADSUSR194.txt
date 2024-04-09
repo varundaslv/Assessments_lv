@@ -1,0 +1,59 @@
+LAB 1:
+1.select CustomerID,avg(DataUsed) from customerinteractions
+where Month ="March"
+group by CustomerID 
+having avg(DataUsed)>3;
+
+2.select * from customerinteractions
+where month = "March" or month = "February"
+order by CustomerID desc
+limit 2;
+
+3.select * from customerinteractions
+where DataUsed>3
+order by MessageCount asc ;
+
+LAB 2:
+4.select ProductTypeID,sum(UnitsSold) as total_sales from QuarterlySales
+group by  ProductTypeID
+having ProductTypeID=1;
+
+5.select * from QuarterlySales
+where Quarter = "Q1"
+order by UnitsSold desc
+limit 1;
+
+6.select ProductTypeID,Quarter,avg(TotalSalesAmount) as average_sales_price from QuarterlySales
+where ProductTypeID=1 and Quarter= "Q2"
+group by ProductTypeID;
+
+LAB 3:
+7.select * from sectorenergyconsumption
+where EnergySource = "Solar" or EnergySource = "Wind" and Month = "March"
+order by ConsumptionKWh desc
+limit 2;
+
+8.select Sector, ConsumptionKWh ,Month from sectorenergyconsumption
+order by ConsumptionKWh desc;
+
+9.select EnergySource,Month,ConsumptionKWh from sectorenergyconsumption
+where month = "February"
+order by ConsumptionKWh desc;
+
+LAB 4:
+10.select CustomerName,FeedbackScore from insuranceactivities
+order by FeedbackScore desc
+LIMIT 3;
+
+11.select PolicyType,sum(AnnualPremium),ClaimsCount from insuranceactivities
+group by ClaimsCount 
+having ClaimsCount>1;
+
+12.select PolicyType,avg(FeedbackScore) from insuranceactivities
+case 
+	avg(FeedbackScore)
+    group by PolicyType;
+
+
+
+
